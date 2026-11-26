@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Design tokens (single source of truth).
+  PLACEHOLDER palette: a discreet, premium direction matching the brand tone
+  ("by invitation only", confidential). Exact brand colors, fonts, and spacing
+  are measured off the live site in Phase 1 and swapped in here only.
+*/
+:root {
+  --color-bg: #f7f5f1;        /* warm off-white page */
+  --color-surface: #ffffff;   /* cards / panels */
+  --color-ink: #1c2b27;       /* deep green-charcoal text */
+  --color-muted: #5b6b66;     /* secondary text */
+  --color-line: #e3ded6;      /* hairline borders */
+  --color-brand: #244b3f;     /* deep forest green */
+  --color-brand-dark: #16302a;
+  --color-accent: #b08b4f;    /* muted bronze/gold */
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: ui-serif, Georgia, "Times New Roman", serif;
+
+  --container-max: 1180px;
+  --radius-card: 14px;
+  --shadow-card: 0 1px 2px rgba(16, 32, 28, 0.04), 0 12px 32px rgba(16, 32, 28, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
