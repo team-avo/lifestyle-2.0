@@ -35,12 +35,18 @@ export async function POST(req: NextRequest) {
   const lastName = String(body.lastName ?? "").trim();
   const email = String(body.email ?? "").trim();
   const phone = String(body.phone ?? "").trim();
-  const message = String(body.message ?? "").trim();
   const formName = String(body.formName ?? "Contact Us").trim();
+  // Optional assessment result line (only the Family Intervention Assessment
+  // sends one, matching the live site). Prepended to the message for GHL.
+  const score = String(body.score ?? "").trim().slice(0, 120);
+  const rawMessage = String(body.message ?? "").trim();
+  const message = [score && `Assessment result: ${score}`, rawMessage].filter(Boolean).join("\n");
 
-  if (!firstName || !email || !phone) {
+  // Phone is optional: guide and assessment forms only ask for name + email.
+  // (The Contact Us form still requires phone in the browser.)
+  if (!firstName || !email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
     return NextResponse.json(
-      { ok: false, error: "Name, email, and phone are required." },
+      { ok: false, error: "First name and a valid email are required." },
       { status: 422 }
     );
   }

@@ -14,6 +14,12 @@ export function isWpTopLevelPage(path: string): boolean {
   );
 }
 
+/**
+ * Hand-built pages whose BODY text is pulled verbatim from WP (no WP routing).
+ * Legal text must match the live site word for word.
+ */
+export const WP_CONTENT_ONLY_PATHS = ["/privacy-policy/", "/terms-and-conditions/"];
+
 /** Nested WP pages rendered by app/los-angeles/[service]/page.tsx. */
 export function isWpLosAngelesPage(path: string): boolean {
   return /^\/los-angeles\/[a-z0-9-]+\/$/.test(path);

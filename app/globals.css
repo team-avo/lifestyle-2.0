@@ -48,6 +48,46 @@ h1, h2, h3, h4 {
   letter-spacing: -0.005em;
 }
 
+/* Legal text: verbatim WP content reduced to semantic HTML (lib/sanitize.ts). */
+.legal-prose h2 {
+  margin-top: 2.5rem;
+  font-size: 1.5rem;
+  color: rgb(var(--color-ink));
+}
+.legal-prose h3,
+.legal-prose h4 {
+  margin-top: 1.75rem;
+  font-size: 1.2rem;
+  color: rgb(var(--color-ink));
+}
+.legal-prose p,
+.legal-prose li {
+  line-height: 1.75;
+}
+.legal-prose p {
+  margin-top: 0.9rem;
+}
+.legal-prose ul,
+.legal-prose ol {
+  margin-top: 0.75rem;
+  padding-left: 1.4rem;
+  list-style: disc;
+}
+.legal-prose ol {
+  list-style: decimal;
+}
+.legal-prose li {
+  margin-top: 0.35rem;
+}
+.legal-prose a {
+  color: rgb(var(--color-teal));
+  text-decoration: underline;
+}
+.legal-prose strong,
+.legal-prose b {
+  color: rgb(var(--color-ink));
+}
+
 /* Blog post bodies come from WordPress as HTML. */
 .wp-content img {
   max-width: 100%;

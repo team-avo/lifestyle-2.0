@@ -10,7 +10,7 @@
 // the build fails loudly (or ISR keeps the last good page) instead of quietly
 // publishing a 404.
 
-import { isWpLosAngelesPage, isWpTopLevelPage } from "@/data/wp-routes";
+import { isWpLosAngelesPage, isWpTopLevelPage, WP_CONTENT_ONLY_PATHS } from "@/data/wp-routes";
 
 const API = process.env.WP_API_BASE ?? "https://lifestyleinterventions.com/wp-json/wp/v2";
 const SITE = "https://lifestyleinterventions.com";
@@ -139,7 +139,7 @@ const servedPagesBundle = memo(async () => {
   const ids = index
     .filter((p) => {
       const path = pathOf(p.link);
-      return isWpTopLevelPage(path) || isWpLosAngelesPage(path);
+      return isWpTopLevelPage(path) || isWpLosAngelesPage(path) || WP_CONTENT_ONLY_PATHS.includes(path);
     })
     .map((p) => p.id);
   if (ids.length === 0) return [];
