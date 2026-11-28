@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Section, Eyebrow } from "@/components/primitives/Section";
-import { ContactForm } from "@/components/sections/ContactForm";
+import { LeadForm } from "@/components/sections/LeadForm";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Contact Us",
+  title: "Intervention & Recovery Support Team",
   description:
     "Request a confidential consultation with the Lifestyle Interventions team.",
 };
@@ -14,11 +14,13 @@ export default function ContactPage() {
     <Section className="pt-20">
       <div className="grid gap-12 lg:grid-cols-2">
         <div>
-          <Eyebrow>Confidential Access</Eyebrow>
-          <h1 className="text-4xl text-ink sm:text-5xl">Start with a Conversation.</h1>
-          <p className="mt-5 text-muted">
-            Every inquiry is handled with complete discretion. Call us directly or
-            send a message and we will respond privately.
+          <Eyebrow>Let&apos;s Start Talking</Eyebrow>
+          <h1 className="text-4xl text-ink sm:text-5xl">Contact Us</h1>
+          <h2 className="mt-6 text-2xl text-ink">Get in Touch. We&apos;re Here for You.</h2>
+          <p className="mt-4 text-muted">
+            Our team is available for any inquiries or support you may need. Every
+            conversation is handled with complete discretion, and we look forward to
+            hearing from you.
           </p>
           <div className="mt-8 space-y-2 text-sm">
             <p>
@@ -36,7 +38,7 @@ export default function ContactPage() {
           </div>
         </div>
         <div>
-          <ContactForm />
+          <LeadForm variant="full" formName="Contact Us" />
         </div>
       </div>
     </Section>

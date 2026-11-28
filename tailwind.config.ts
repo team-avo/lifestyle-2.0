@@ -1,8 +1,6 @@
 import type { Config } from "tailwindcss";
 
 // Tailwind maps to the CSS-variable design tokens in app/globals.css.
-// Tokens are the single source of truth; exact brand values get measured
-// off the live site in Phase 1 (see ARCHITECTURE.md Section 6).
 const config: Config = {
   content: [
     "./app/**/*.{ts,tsx}",
@@ -11,19 +9,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        bg: "var(--color-bg)",
-        surface: "var(--color-surface)",
-        ink: "var(--color-ink)",
-        muted: "var(--color-muted)",
-        line: "var(--color-line)",
-        brand: "var(--color-brand)",
-        "brand-dark": "var(--color-brand-dark)",
-        accent: "var(--color-accent)",
-      },
+      // rgb(channels / alpha) so opacity modifiers like bg-brand/80 work.
+      colors: Object.fromEntries(
+        ["bg", "surface", "ink", "muted", "line", "brand", "brand-dark", "accent", "sage", "lime", "teal", "slate"].map(
+          (name) => [name, `rgb(var(--color-${name}) / <alpha-value>)`]
+        )
+      ),
       fontFamily: {
-        sans: "var(--font-sans)",
-        serif: "var(--font-serif)",
+        sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
+        serif: ["var(--font-serif)", "Georgia", "serif"],
       },
       maxWidth: {
         container: "var(--container-max)",

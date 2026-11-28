@@ -9,11 +9,10 @@ const nextConfig: NextConfig = {
   // sitemap diff so nothing 404s. Seeded with the known orphan.
   async redirects() {
     return [
-      {
-        source: "/advisory-version-2",
-        destination: "/advisory/",
-        permanent: true,
-      },
+      // Unlinked draft page on the live site; folded into the real Advisory page.
+      { source: "/advisory-version-2", destination: "/advisory/", permanent: true },
+      // Live site already 301s this one.
+      { source: "/los-angeles/family-support-services", destination: "/family-support-services/", permanent: true },
     ];
   },
 };
